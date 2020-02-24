@@ -1,0 +1,50 @@
+{
+    "name": "test",
+    "dependencies": {
+        "concurrently": "^5.1.0",
+        "express": "^4.17.1",
+        "forever-monitor": "^2.0.0",
+        "node-dev": "^4.0.0",
+        "nodemon": "^2.0.2",
+        "ts-loader": "^6.2.1"
+    },
+    "devDependencies": {
+        "@swc/core": "^1.1.27",
+        "@types/express": "^4.17.2",
+        "@types/node": "^13.7.4",
+        "daemon-command-webpack-plugin": "^1.5.0",
+        "execa-webpack-plugin": "^6.0.0",
+        "fuse-box": "^3.7.1",
+        "swc-loader": "^0.1.8",
+        "terser": "^4.6.3",
+        "ts-node": "^8.6.2",
+        "tsconfig-paths": "^3.9.0",
+        "typescript": "^3.8.2",
+        "uglify-js": "^3.8.0",
+        "webpack": "^4.41.6",
+        "webpack-cli": "^3.3.11",
+        "webpack-shell-plugin-next": "^1.1.5"
+    },
+    "scripts": {
+        "kill": "Taskkill /IM node.exe /F",
+        "start_compile_1": "tsc ./index --baseUrl ./",
+        "start_compile_2": "tsc ./index",
+        "start_compile_3": "ts-node ./index --baseUrl ./",
+        "start_compile_4": "ts-node -r tsconfig-paths/register ./index",
+        "start_compile_and_watch_src_1": "webpack --watch",
+        "start_compile_and_watch_src_2": "node start_webpack.js",
+        "start_compile_and_watch_src_3_x": "node start_fusebox.js",
+        "start_watch_dist_and_run_1": "node-dev dist/index",
+        "start_watch_dist_and_run_2": "nodemon dist/index",
+        "start_compile_and_watch_src_and_run_1": "node start_webpack_2.js",
+        "start_compile_and_watch_src_and_run_2": "webpack --watch --config webpack.config_2.js",
+        "start_run_1": "node dist/index",
+        "start_1": "concurrently \"npm run start_compile_and_watch_src_1\" \"npm run start_watch_dist_and_run_1\"",
+        "start_2": "npm run start_compile_and_watch_src_and_run_1",
+        "start_3": "npm run start_compile_and_watch_src_and_run_2",
+        "start_4": "forever --debug --m 1 --verbose  start start_webpack_2.js",
+        "start_2_x": "concurrently \"npm run start_compile_and_watch_src_1\" \"npm run start_watch_dist_and_run_2\"",
+        "start_12_x": "npm run start_compile_and_watch_src_and_run_1",
+        "start_3_x": "concurrently \"npm run start_compile_and_watch_src_3\" \"npm run start_watch_dist_and_run_1\""
+    }
+}
